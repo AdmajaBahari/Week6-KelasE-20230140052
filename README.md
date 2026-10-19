@@ -1,12 +1,15 @@
 # Week 6 — Warta Pasar
 
+Tugas PPAW Week 6: **JavaScript DOM, Event Handling, dan Fetch API**.
 Dua halaman web statis (HTML + CSS + JavaScript native, tanpa library) bergaya koran vintage 90-an.
-Tugas PPAW Week 6: JavaScript DOM, Event Handling, dan Fetch API.
+
+- **Repository:** https://github.com/AdmajaBahari/Week6-KelasE-20230140052
+- **Live demo (GitHub Pages):** https://admajabahari.github.io/Week6-KelasE-20230140052/
 
 ## Halaman
 
 ### Halaman Muka (`public/index.html`) — Fetch API
-Menarik 13 produk dari [dummyjson.com/products](https://dummyjson.com/products) dan menampilkan **nama** dan **harga** lewat DOM dalam gaya halaman iklan katalog lawas: hero harga termurah, panel iklan berbagai ukuran, baris harga bertitik, dan daftar harga lengkap.
+Menarik 13 produk dari [dummyjson.com/products](https://dummyjson.com/products) dan menampilkan **nama** dan **harga** lewat DOM, dalam gaya halaman iklan katalog lawas: hero harga termurah, panel iklan berbagai ukuran, baris harga bertitik, dan daftar harga lengkap.
 - Ada status *loading* saat data diambil
 - Ada penanganan error (timeout, HTTP error, jaringan) lengkap dengan tombol **Coba Lagi**
 
@@ -29,7 +32,7 @@ Semua angka, URL, pola, dan teks pesan dideklarasikan sebagai konstanta di **bag
 ## Struktur Folder
 
 ```
-Week6-KelasC-20230140052/
+Week6-KelasE-20230140052/
 ├── .github/workflows/
 │   └── pages.yml       # deploy folder public/ ke GitHub Pages
 ├── public/
@@ -37,8 +40,8 @@ Week6-KelasC-20230140052/
 │   ├── form.html       # Surat Pembaca (DOM & Event)
 │   ├── css/
 │   │   ├── index.css   # gaya dasar koran vintage (dipakai kedua halaman)
-│   │   ├── katalog.css # gaya katalog iklan halaman muka (dimuat setelah index.css)
-│   │   └── form.css    # gaya khusus form (dimuat setelah index.css)
+│   │   ├── katalog.css # gaya katalog iklan halaman muka
+│   │   └── form.css    # gaya khusus form
 │   └── js/
 │       ├── index.js    # fetch, loading, error, render produk
 │       └── form.js     # validasi, event listener, cetak surat
@@ -48,17 +51,21 @@ Week6-KelasC-20230140052/
 ```
 
 ## Cara Menjalankan Lokal
-Buka `public/index.html` di browser (perlu internet untuk Fetch API dan font).
 
-## Deploy ke GitHub Pages (index.html ada di folder `public/`)
+```bash
+git clone https://github.com/AdmajaBahari/Week6-KelasE-20230140052.git
+cd Week6-KelasE-20230140052
+```
 
-GitHub Pages bawaan hanya bisa memilih folder `/` atau `/docs`, jadi repo ini memakai **GitHub Actions** untuk menerbitkan folder `public/`.
+Lalu buka `public/index.html` di browser (perlu internet untuk Fetch API dan font).
 
-1. Push semua file (termasuk `.github/workflows/pages.yml`) ke branch `main`.
-2. Di GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-3. Buka tab **Actions**, tunggu workflow *Deploy ke GitHub Pages* hijau.
-4. Situs aktif di `https://<username>.github.io/<nama-repo>/`.
+## Deploy ke GitHub Pages
 
-Catatan: jalur file di HTML memakai jalur relatif (`css/index.css`, bukan `/css/index.css`) supaya tetap jalan di subpath `/<nama-repo>/`.
+`index.html` berada di folder `public/`, sedangkan Pages bawaan hanya bisa memilih `/` atau `/docs`. Karena itu repo ini memakai **GitHub Actions** (`.github/workflows/pages.yml`) untuk menerbitkan folder `public/`.
 
-Alternatif tanpa Actions: ganti nama folder `public/` menjadi `docs/`, lalu **Settings → Pages → Source: Deploy from a branch → main /docs**.
+Pengaturan yang dipakai:
+1. **Settings → Pages → Build and deployment → Source: GitHub Actions**
+2. Setiap push ke branch `main` menjalankan workflow *Deploy ke GitHub Pages* secara otomatis (cek di tab **Actions**).
+3. Situs aktif di https://admajabahari.github.io/Week6-KelasE-20230140052/
+
+Jalur file di HTML memakai jalur relatif (`css/index.css`, bukan `/css/index.css`) supaya tetap jalan di subpath `/Week6-KelasE-20230140052/`.
