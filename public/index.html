@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warta Pasar — Katalog Barang Dagangan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bebas+Neue&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/katalog.css">
+</head>
+<body>
+<div class="sheet">
+
+  <nav>
+    <a href="index.html" aria-current="page">Halaman Muka</a>
+    <a href="form.html">Surat Pembaca</a>
+  </nav>
+
+  <header class="masthead masthead--compact">
+    <h1>Warta Pasar</h1>
+    <div class="edition">
+      <span>Edisi Katalog Practice 6</span>
+      <span id="editionDate"></span>
+      <span>Sumber: dummyjson.com</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-main">
+      <p class="hero-tag">Harga Hemat<br>Untuk Anda</p>
+      <h2 class="hero-title">Pasar Murah</h2>
+      <p class="hero-brand">Warta Pasar Terpercaya</p>
+      <p class="hero-sub">Barang Pilihan Berkualitas Tertinggi</p>
+    </div>
+    <div class="hero-price">
+      <span>Mulai dari</span>
+      <strong id="heroPrice">...</strong>
+      <span>per buah, kirim ke seluruh negeri</span>
+    </div>
+  </section>
+
+  <main>
+    <div id="status" role="status" aria-live="polite">Memuat kabar pasar...</div>
+    <div class="catalog" id="catalog"></div>
+
+    <section class="price-list" id="priceListSection" hidden>
+      <h3 class="list-title">Daftar Harga Lengkap</h3>
+      <ul id="priceList"></ul>
+    </section>
+
+    <aside class="notice">
+      <h3>Pemberitahuan</h3>
+      <p>Setiap barang yang kami jual dijamin memuaskan. Bila Anda tidak puas, kembalikan barang tersebut dan uang Anda kami kembalikan seluruhnya. Pesanan dikemas segar tiap hari dan dikirim sebelum sempat dingin di gudang.</p>
+    </aside>
+  </main>
+
+  <footer>
+    Warta Pasar, Kota Yogyakarta &middot; Cobalah salah satu barang dagangan kami dan hemat uang Anda
+  </footer>
+
+</div>
+<script src="js/index.js"></script>
+</body>
+</html>

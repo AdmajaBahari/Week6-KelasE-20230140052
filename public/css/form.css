@@ -1,0 +1,76 @@
+/* form.css — gaya khusus halaman Surat Pembaca (dimuat setelah index.css) */
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(var(--gap) * 2);
+}
+.column + .column {
+  padding-left: calc(var(--gap) * 2);
+  border-left: var(--rule-thin) solid var(--ink);
+}
+
+.field { margin: 16px 0; }
+label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+input, select, textarea {
+  width: 100%;
+  font: inherit;
+  color: var(--ink);
+  background: var(--paper-light);
+  border: var(--rule-thin) solid var(--ink);
+  border-radius: 0;
+  padding: 8px 10px;
+}
+textarea { resize: vertical; }
+[aria-invalid="true"] { border-color: var(--stamp); border-width: 2px; }
+
+.error {
+  min-height: 1.4em;
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: var(--stamp);
+  font-weight: 700;
+}
+.counter { text-align: right; font-size: 0.8rem; font-style: italic; color: var(--ink-soft); }
+
+#formFeedback { margin-top: 12px; font-weight: 700; }
+#formFeedback.is-error { color: var(--stamp); }
+
+button.secondary {
+  margin-top: var(--gap);
+  background: transparent;
+  color: var(--ink);
+}
+button.secondary:hover { background: var(--ink); color: var(--paper-light); border-color: var(--ink); }
+
+.empty { margin-top: 12px; font-style: italic; color: var(--ink-soft); }
+
+.letter {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border: var(--rule-thin) solid var(--ink);
+  border-left: var(--rule-thick) solid var(--ink);
+  background: var(--paper-light);
+}
+.letter h4 {
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-size: 1.4rem;
+  letter-spacing: 0.04em;
+}
+.letter .meta { font-size: 0.8rem; font-style: italic; color: var(--ink-soft); }
+.letter p { margin-top: 6px; overflow-wrap: anywhere; }
+
+@media (max-width: 760px) {
+  .columns { grid-template-columns: 1fr; }
+  .column + .column {
+    padding-left: 0;
+    border-left: 0;
+    padding-top: var(--gap);
+    border-top: var(--rule-thick) double var(--ink);
+  }
+}

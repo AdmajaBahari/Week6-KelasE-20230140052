@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surat Pembaca — Warta Pasar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/form.css">
+</head>
+<body>
+<div class="sheet">
+
+  <nav>
+    <a href="index.html">Halaman Muka</a>
+    <a href="form.html" aria-current="page">Surat Pembaca</a>
+  </nav>
+
+  <header class="masthead">
+    <h1>Warta Pasar</h1>
+    <div class="edition">
+      <span>Edisi Practice 6</span>
+      <span id="editionDate"></span>
+      <span>Rubrik Surat Pembaca</span>
+    </div>
+  </header>
+
+  <h2 class="banner">Tulis Suratmu, Kami Terbitkan</h2>
+  <p class="deck">Isi formulir, kirim, dan suratmu langsung tercetak di kolom sebelah.</p>
+
+  <main class="columns">
+
+    <section class="column">
+      <h3>Formulir Surat</h3>
+      <form id="letterForm" novalidate>
+
+        <div class="field">
+          <label for="name">Nama</label>
+          <input type="text" id="name" name="name" autocomplete="name" aria-describedby="name-error">
+          <p class="error" id="name-error"></p>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" aria-describedby="email-error">
+          <p class="error" id="email-error"></p>
+        </div>
+
+        <div class="field">
+          <label for="topic">Jenis surat</label>
+          <select id="topic" name="topic" aria-describedby="topic-error">
+            <option value="">Pilih jenis surat</option>
+            <option value="Saran">Saran</option>
+            <option value="Kritik">Kritik</option>
+            <option value="Pertanyaan">Pertanyaan</option>
+          </select>
+          <p class="error" id="topic-error"></p>
+        </div>
+
+        <div class="field">
+          <label for="message">Isi surat</label>
+          <textarea id="message" name="message" rows="5" aria-describedby="message-error message-counter"></textarea>
+          <p class="counter" id="message-counter"></p>
+          <p class="error" id="message-error"></p>
+        </div>
+
+        <button type="submit">Kirim ke Redaksi</button>
+        <p id="formFeedback" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="column">
+      <h3>Surat Terbit</h3>
+      <p id="letterEmpty" class="empty">Belum ada surat yang terbit. Jadilah yang pertama.</p>
+      <div id="letterList"></div>
+      <button type="button" id="clearLetters" class="secondary">Kosongkan Kolom</button>
+    </section>
+
+  </main>
+
+  <footer>
+    Dicetak dengan HTML, CSS, dan JavaScript native &middot; Tugas PPAW Week 6
+  </footer>
+
+</div>
+<script src="js/form.js"></script>
+</body>
+</html>

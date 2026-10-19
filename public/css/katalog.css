@@ -1,0 +1,215 @@
+/* katalog.css — halaman muka bergaya halaman iklan katalog lawas (dimuat setelah index.css) */
+
+:root {
+  --ad-red: #c23a20;
+  --ad-red-light: #f08a6e;
+  --font-slab: "Alfa Slab One", "Rockwell", "Rockwell Extra Bold", Georgia, serif;
+  --panel-border: 3px solid var(--ink);
+}
+
+.masthead--compact h1 { font-size: clamp(2.2rem, 7vw, 3.6rem); }
+
+/* ---------- hero ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  margin-top: var(--gap);
+  border: 5px solid var(--ink);
+  background: var(--paper-light);
+}
+.hero-main { padding: 16px 22px 18px; }
+.hero-tag {
+  display: inline-block;
+  padding: 6px 16px;
+  border: var(--panel-border);
+  border-radius: 16px;
+  font-family: var(--font-slab);
+  font-size: 1.15rem;
+  line-height: 1.15;
+}
+.hero-title {
+  margin: 4px 0 6px;
+  font-family: var(--font-slab);
+  font-weight: 400;
+  font-size: clamp(3.4rem, 12vw, 7.5rem);
+  line-height: 0.95;
+  color: var(--ad-red);
+  text-shadow: 3px 3px 0 var(--ink);
+}
+.hero-brand {
+  display: inline-block;
+  padding: 2px 18px 4px;
+  background: var(--ink);
+  color: var(--paper-light);
+  font-family: var(--font-slab);
+  font-size: clamp(1.3rem, 4vw, 2.2rem);
+}
+.hero-sub {
+  margin-top: 6px;
+  font-family: var(--font-slab);
+  font-size: clamp(1.1rem, 3vw, 1.7rem);
+  color: var(--ad-red);
+}
+.hero-price {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  min-width: 250px;
+  padding: 16px 24px;
+  background: var(--ink);
+  color: var(--paper-light);
+  text-align: center;
+  font-family: var(--font-slab);
+}
+.hero-price strong {
+  font-weight: 400;
+  font-size: clamp(3rem, 8vw, 4.8rem);
+  line-height: 1;
+}
+
+/* ---------- grid iklan ---------- */
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: dense;
+  gap: var(--gap);
+  margin-top: var(--gap);
+}
+.ad {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  border: var(--panel-border);
+  background: var(--paper-light);
+}
+.ad--wide { grid-column: span 2; }
+.ad--lead { grid-column: 1 / -1; padding: 18px; border-width: 5px; }
+
+.ad-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+.ad-title {
+  font-family: var(--font-slab);
+  font-weight: 400;
+  font-size: 1.55rem;
+  line-height: 1.1;
+  color: var(--ad-red);
+}
+.ad--lead .ad-title { font-size: clamp(2rem, 6vw, 3.4rem); }
+
+.ad-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+  font-family: var(--font-slab);
+  text-align: right;
+  line-height: 1.05;
+}
+.ad-price strong { font-weight: 400; font-size: 2.1rem; color: var(--ad-red); }
+.ad-price span { font-family: var(--font-body); font-size: 0.72rem; font-style: italic; }
+.ad--lead .ad-price strong { font-size: clamp(2.6rem, 8vw, 4.4rem); }
+
+.ad-body { display: flex; flex-direction: column; gap: 10px; }
+.ad--wide .ad-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 14px; }
+.ad--lead .ad-body { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 20px; }
+.ad--lead .ad-photo { order: 2; }
+
+.ad-photo {
+  align-self: start;
+  background: var(--paper-shade);
+  border: 2px solid var(--ink);
+}
+.ad-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  filter: grayscale(1) sepia(0.55) contrast(1.1);
+  mix-blend-mode: multiply;
+}
+
+.ad-copy {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  text-align: justify;
+  hyphens: auto;
+}
+.ad-copy + .ad-copy { margin-top: 8px; }
+.ad--lead .ad-text { column-count: 2; column-gap: 20px; }
+.ad--lead .ad-copy:first-of-type::first-letter {
+  float: left;
+  padding: 2px 6px 0 0;
+  font-family: var(--font-slab);
+  font-size: 3.2em;
+  line-height: 0.85;
+}
+.ad--lead .price-line { break-inside: avoid; }
+
+/* ---------- baris harga bertitik ---------- */
+.price-line {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid currentColor;
+  font-size: 0.78rem;
+}
+.price-line .leader {
+  flex: 1;
+  min-width: 12px;
+  border-bottom: 2px dotted currentColor;
+}
+.price-line b { font-family: var(--font-slab); font-weight: 400; font-size: 1.05rem; }
+
+/* ---------- panel gelap ---------- */
+.ad--dark { background: var(--ink); color: var(--paper-light); }
+.ad--dark .ad-title { color: var(--paper-light); }
+.ad--dark .ad-price strong { color: var(--ad-red-light); }
+.ad--dark .ad-photo { border-color: var(--paper-light); }
+
+/* ---------- daftar harga ---------- */
+.price-list { margin-top: var(--gap); border: var(--panel-border); background: var(--paper-light); }
+.list-title {
+  padding: 6px 12px;
+  background: var(--ink);
+  color: var(--paper-light);
+  text-align: center;
+  font-family: var(--font-slab);
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+.price-list ul { column-count: 2; column-gap: 28px; padding: 6px 18px 14px; list-style: none; }
+.price-list .price-line { break-inside: avoid; }
+
+/* ---------- pemberitahuan ---------- */
+.notice {
+  max-width: 70ch;
+  margin: var(--gap) auto 0;
+  padding: 10px 18px 14px;
+  border: 5px double var(--ink);
+  text-align: center;
+  font-size: 0.85rem;
+}
+.notice h3 { font-family: var(--font-slab); font-weight: 400; font-size: 1.5rem; }
+
+/* ---------- responsif ---------- */
+@media (max-width: 900px) {
+  .catalog { grid-template-columns: repeat(2, 1fr); }
+  .ad--wide { grid-column: auto; }
+  .ad--wide .ad-body { display: flex; }
+}
+@media (max-width: 640px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-price { min-width: 0; }
+  .catalog { grid-template-columns: 1fr; }
+  .ad--lead .ad-body { display: flex; }
+  .ad--lead .ad-text { column-count: 1; }
+  .price-list ul { column-count: 1; }
+}
